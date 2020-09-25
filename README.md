@@ -3,4 +3,6 @@
 # Weather - CLI :sunrise:
 
 
-Node CLI app that gives you the weather forecast for a given city :sunny:
+`Node.js` CLI app that gives you the weather forecast for a given city :sunny:
+
+![usage](img/usage.png)
