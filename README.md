@@ -3,4 +3,4 @@
 # Weather - CLI :sunrise:
 
 
-Node CLI app that gives you the weather forecast for a given city.
+Node CLI app that gives you the weather forecast for a given city :sunny:
