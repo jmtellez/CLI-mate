@@ -1,11 +1,9 @@
+require("dotenv").config();
 const request = require("postman-request");
-const propertiesReader = require('properties-reader');
 const ora = require("ora");
 
-const props = propertiesReader("./application-properties.ini");
-
 const forecast = (lat, lon, units, callback) => {
-  const weatherstackURI = `http://api.weatherstack.com/current?access_key=${props.get('weatherstack.token')}&query=${lat},${lon}&units=${units}`;
+  const weatherstackURI = `http://api.weatherstack.com/current?access_key=${process.env.WEATHERSTACK}&query=${lat},${lon}&units=${units}`;
   const spinner = ora("Preparing forecast").start();
   spinner.color = "yellow";
 
