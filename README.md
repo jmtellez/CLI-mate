@@ -6,7 +6,7 @@
 
 ![usage](img/usage.png)
 
-You will need to initialize `.env` with the corresponding API Keys:
+Create a `.env` file in the root directory and add the following vars:
 
 ```ini
 MAPBOX=API_KEY
