@@ -9,7 +9,7 @@
 On your terminal export these two environment variables:
 
 **Zsh**
-```zsh 
+```bash 
 echo 'MAPBOX=API_KEY' >>  ~/.zprofile
 
 echo 'WEATHERSTACK=API_KEY' >> ~/.zprofile

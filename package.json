@@ -1,6 +1,7 @@
 {
-  "name": "cli-mate",
+  "name": "@jmt3559/cli-mate",
   "version": "1.0.0",
+  "repository": "https://github.com/jmtellez/CLI-mate",
   "description": "CLI to display weather for given location",
   "main": "app.js",
   "preferGlobal": true,
@@ -10,7 +11,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": ["climate", "cli-mate", "cli", "clim8", "weather"],
   "author": "",
   "license": "ISC",
   "dependencies": {
