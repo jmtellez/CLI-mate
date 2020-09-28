@@ -6,13 +6,23 @@
 
 ![usage](img/usage.png)
 
-Create a `.env` file in the root directory and add the following vars:
+On your terminal export these two environment variables:
 
-```ini
-MAPBOX=API_KEY
-WEATHERSTACK=API_KEY
+**Zsh**
+```zsh 
+echo 'MAPBOX=API_KEY' >>  ~/.zprofile
+
+echo 'WEATHERSTACK=API_KEY' >> ~/.zprofile
 ```
 
+**Bash**
+```bash
+echo 'MAPBOX=API_KEY' >>  ~/.bash_profile
+
+echo 'WEATHERSTACK=API_KEY' >> ~/.bash_profile
+```
+
+## Get API Keys
 ### [Weatherstack](https://weatherstack.com/) - 1k free requests per month
 
 ### [Mapbox](https://docs.mapbox.com/) - 100K free requests

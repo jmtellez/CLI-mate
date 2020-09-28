@@ -1,4 +1,3 @@
-require("dotenv").config();
 const request = require("postman-request");
 const ora = require("ora");
 
