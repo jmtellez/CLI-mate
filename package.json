@@ -1,11 +1,11 @@
 {
-  "name": "weather-cli",
+  "name": "cli-mate",
   "version": "1.0.0",
-  "description": "CLI tool to display weather for given location",
+  "description": "CLI to display weather for given location",
   "main": "app.js",
   "preferGlobal": true,
   "bin": {
-    "weather": "app.js"
+    "cli-mate": "app.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
