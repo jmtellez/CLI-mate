@@ -1,8 +1,8 @@
 const request = require("postman-request");
 const ora = require("ora");
 
-const forecast = (lat, lon, units, callback) => {
-  const weatherstackURI = `http://api.weatherstack.com/current?access_key=${process.env.WEATHERSTACK}&query=${lat},${lon}&units=${units}`;
+const forecast = (lat, lon, callback) => {
+  const weatherstackURI = `http://api.weatherstack.com/current?access_key=${process.env.WEATHERSTACK}&query=${lat},${lon}&units=f`;
   const spinner = ora("Preparing forecast").start();
   spinner.color = "yellow";
 
