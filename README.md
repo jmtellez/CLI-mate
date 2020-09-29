@@ -6,6 +6,11 @@
 
 ![usage](img/usage.png)
 
+**Install**
+```bash
+npm install -g @jmt3559/cli-mate
+```
+
 On your terminal export these two environment variables:
 
 **Zsh**
