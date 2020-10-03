@@ -21,7 +21,7 @@ const getInputUnit = (inputValue) => {
 };
 
 const location = process.argv[2];
-const unit = getInputUnit(process.argv[3]);
+const units = getInputUnit(process.argv[3]);
 const spinner = ora();
 
 switch (location) {
@@ -45,13 +45,12 @@ switch (location) {
       forecast(
         latitude,
         longitude,
-        unit,
+        units,
         (err, { description, temp, feelsLike, tempScale } = {}) => {
           if (err) {
             return spinner.fail(err);
           }
           spinner.succeed(chalk.underline(location));
-          // TODO check for units - °F default for now
           console.log(
             chalk.cyanBright(
               `${description}. It is currently ${temp}${tempScale}, it feels like ${feelsLike}${tempScale}.`
