@@ -26,7 +26,7 @@ const options = `
   Options:
     --help          Show help 
     --version       Show version number
-
+    --units         m - Metric / s - Scientific / f - Fahrenheit (default)
 `
 
 const menu = ()=>{
@@ -35,5 +35,3 @@ const menu = ()=>{
   console.log(options);
 }
 module.exports = menu;
-
-// --units         m - Metric / s - Scientific / f - Fahrenheit (default)
