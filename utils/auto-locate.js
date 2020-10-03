@@ -1,14 +1,18 @@
-const request = require("postman-request");
-//get freegeoip
-
 function autoLocate(callback) {
   request("https://freegeoip.app/json/", (err, body) => {
-    if (err) console.log(err);
+    if (err) {
+      callback(err, undefined)
+    };
     const res = JSON.parse(body.body);
-    console.log(undefined, res.city)
+    callback(undefined, res.city)
   });
 
 }
 
-//autoLocate()
-module.exports = autoLocate
+module.exports = autoLocate;
+
+/*
+autoLocate((err, city) => {
+ console.log(city) ;
+})
+*/

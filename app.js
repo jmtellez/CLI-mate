@@ -13,6 +13,21 @@ const spinner = ora();
 switch (location) {
   case undefined:
     menu();
+
+/* 
+== Autolocation - should be fired on case undefined
+
+Const autoLocate = require("./utils/autolocate")
+
+
+autoLocate((err, city) => {
+ //console.log(city) ;
+
+case geocode, etc.
+})
+
+==
+*/
     spinner.fail("Provide a location");
     break;
   case "--help" || "--h":
