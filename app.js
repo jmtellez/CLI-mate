@@ -6,11 +6,18 @@ const geocode = require("./utils/geocode");
 const forecast = require("./utils/forecast");
 const menu = require("./utils/menu");
 
-const getInputUnit = (argumentValue) => {
-  if (argumentValue && (argumentValue.startsWith("--u=") || argumentValue.startsWith("--units="))) {
-    return argumentValue.split("=")[1] || "f";
+const getInputUnit = (inputValue) => {
+  let apiInput = "f";
+  if (!(inputValue && (inputValue.startsWith("--u=") || inputValue.startsWith("--units=")))) {
+    return apiInput;
   }
-  return "f";
+
+  const unitValue = inputValue.split("=")[1];
+
+  if (unitValue.length === 1) {
+    apiInput = unitValue;
+  }
+  return apiInput;
 };
 
 const location = process.argv[2];
