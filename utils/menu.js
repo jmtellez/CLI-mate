@@ -32,4 +32,6 @@ const menu = () => {
   console.log(chalk.yellowBright(ascii));
   console.log(options);
 };
-module.exports = menu;
+
+const menuText = chalk.yellowBright(ascii) + "\n" + options;
+module.exports = { menu, menuText };

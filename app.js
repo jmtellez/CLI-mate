@@ -5,24 +5,24 @@ const pck = require("./package.json");
 const options = require("./utils/options");
 const geocode = require("./utils/geocode");
 const forecast = require("./utils/forecast");
-const menu = require("./utils/menu");
+const { menu, menuText } = require("./utils/menu");
+const meow = require("meow");
 
-const location = process.argv[2];
-const units = options.getUnits(process.argv[3]);
 const spinner = ora();
+
+const cli = meow(menuText, {
+  flags: {
+    units: { type: "string", alias: "u" },
+  },
+});
+
+const units = cli.flags.units;
+const location = cli.input[0];
 
 switch (location) {
   case undefined:
     menu();
     spinner.fail("Provide a location");
-    break;
-  case "--help" || "--h":
-  case "--h":
-    menu();
-    break;
-  case "--version" || "--v":
-  case "--v":
-    spinner.succeed(pck.version);
     break;
   case location:
     geocode(location, (err, { latitude, longitude, location } = {}) => {
