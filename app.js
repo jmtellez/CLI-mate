@@ -6,8 +6,22 @@ const geocode = require("./utils/geocode");
 const forecast = require("./utils/forecast");
 const menu = require("./utils/menu");
 
+const getInputUnit = (inputValue) => {
+  let apiInput = "f";
+  if (!(inputValue && (inputValue.startsWith("--u=") || inputValue.startsWith("--units=")))) {
+    return apiInput;
+  }
+
+  const unitValue = inputValue.split("=")[1];
+
+  if (unitValue.length === 1) {
+    apiInput = unitValue;
+  }
+  return apiInput;
+};
+
 const location = process.argv[2];
-// const units = process.argv[3];
+const units = getInputUnit(process.argv[3]);
 const spinner = ora();
 
 switch (location) {
@@ -23,7 +37,6 @@ switch (location) {
   case "--v":
     spinner.succeed(pck.version);
     break;
-
   case location:
     geocode(location, (err, { latitude, longitude, location } = {}) => {
       if (err) {
@@ -32,15 +45,15 @@ switch (location) {
       forecast(
         latitude,
         longitude,
-        (err, { description, temp, feelsLike } = {}) => {
+        units,
+        (err, { description, temp, feelsLike, tempScale } = {}) => {
           if (err) {
             return spinner.fail(err);
           }
           spinner.succeed(chalk.underline(location));
-          // TODO check for units - °F default for now
           console.log(
             chalk.cyanBright(
-              `${description}. It is currently ${temp}°F, it feels like ${feelsLike}°F.`
+              `${description}. It is currently ${temp}${tempScale}, it feels like ${feelsLike}${tempScale}.`
             )
           );
         }

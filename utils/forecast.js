@@ -1,8 +1,8 @@
 const request = require("postman-request");
 const ora = require("ora");
 
-const forecast = (lat, lon, callback) => {
-  const weatherstackURI = `http://api.weatherstack.com/current?access_key=${process.env.WEATHERSTACK}&query=${lat},${lon}&units=f`;
+const forecast = (lat, lon, units = "f", callback) => {
+  const weatherstackURI = `http://api.weatherstack.com/current?access_key=${process.env.WEATHERSTACK}&query=${lat},${lon}&units=${units}`;
   const spinner = ora("Preparing forecast").start();
   spinner.color = "yellow";
 
@@ -20,10 +20,23 @@ const forecast = (lat, lon, callback) => {
           temp: body.current.temperature,
           feelsLike: body.current.feelslike,
           description: body.current.weather_descriptions[0],
+          tempScale: getTemperatureScale(body.request.unit)
         });
       }
     });
   }, 1000);
 };
+
+const getTemperatureScale = (apiUnit) => {
+  switch (apiUnit) {
+    case "s":
+      return "°K";
+    case "m":
+      return "°C";
+    case "f":
+    default:
+      return "°F";
+  }
+}
 
 module.exports = forecast;
