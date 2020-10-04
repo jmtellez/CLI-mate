@@ -1,6 +1,5 @@
 const chalk = require("chalk");
 
-
 const ascii = `
 
 ________      ___           ___                     _____ ______       ________      _________    _______      
@@ -12,7 +11,7 @@ ________      ___           ___                     _____ ______       ________ 
     \\|_______|    \\|_______|    \\|__|                   \\|__|     \\|__|    \\|__|\\|__|        \\|__|    \\|_______|
                                                                                                                 
        
-`
+`;
 
 const options = `
 
@@ -27,11 +26,10 @@ const options = `
     --help          Show help 
     --version       Show version number
     --units         m - Metric / s - Scientific / f - Fahrenheit (default)
-`
+`;
 
-const menu = ()=>{
-
+const menu = () => {
   console.log(chalk.yellowBright(ascii));
   console.log(options);
-}
+};
 module.exports = menu;
