@@ -20,7 +20,7 @@ const forecast = (lat, lon, units = "f", callback) => {
           temp: body.current.temperature,
           feelsLike: body.current.feelslike,
           description: body.current.weather_descriptions[0],
-          tempScale: getTemperatureScale(body.request.unit)
+          tempScale: getTemperatureScale(body.request.unit),
         });
       }
     });
@@ -37,6 +37,6 @@ const getTemperatureScale = (apiUnit) => {
     default:
       return "°F";
   }
-}
+};
 
 module.exports = forecast;

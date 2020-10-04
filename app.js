@@ -2,26 +2,13 @@
 const chalk = require("chalk");
 const ora = require("ora");
 const pck = require("./package.json");
+const options = require("./utils/options");
 const geocode = require("./utils/geocode");
 const forecast = require("./utils/forecast");
 const menu = require("./utils/menu");
 
-const getInputUnit = (inputValue) => {
-  let apiInput = "f";
-  if (!(inputValue && (inputValue.startsWith("--u=") || inputValue.startsWith("--units=")))) {
-    return apiInput;
-  }
-
-  const unitValue = inputValue.split("=")[1];
-
-  if (unitValue.length === 1) {
-    apiInput = unitValue;
-  }
-  return apiInput;
-};
-
 const location = process.argv[2];
-const units = getInputUnit(process.argv[3]);
+const units = options.getUnits(process.argv[3]);
 const spinner = ora();
 
 switch (location) {
