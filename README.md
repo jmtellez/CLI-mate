@@ -15,16 +15,16 @@ On your terminal export these two environment variables:
 
 **Zsh**
 ```bash 
-echo 'MAPBOX=API_KEY' >>  ~/.zprofile
+echo 'export MAPBOX=API_KEY' >>  ~/.zprofile
 
-echo 'WEATHERSTACK=API_KEY' >> ~/.zprofile
+echo 'export WEATHERSTACK=API_KEY' >> ~/.zprofile
 ```
 
 **Bash**
 ```bash
-echo 'MAPBOX=API_KEY' >>  ~/.bash_profile
+echo 'export MAPBOX=API_KEY' >>  ~/.bash_profile
 
-echo 'WEATHERSTACK=API_KEY' >> ~/.bash_profile
+echo 'export WEATHERSTACK=API_KEY' >> ~/.bash_profile
 ```
 
 ## Get API Keys
