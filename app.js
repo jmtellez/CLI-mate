@@ -1,18 +1,16 @@
 #!/usr/bin/env node
 const chalk = require("chalk");
 const ora = require("ora");
-const pck = require("./package.json");
-const options = require("./utils/options");
 const geocode = require("./utils/geocode");
 const forecast = require("./utils/forecast");
-const { menu, menuText } = require("./utils/menu");
+const menu = require("./utils/menu");
 const meow = require("meow");
 
 const spinner = ora();
 
-const cli = meow(menuText, {
+const cli = meow(menu, {
   flags: {
-    units: { type: "string", alias: "u" },
+    units: { type: "string", alias: "u", default: "f" },
   },
 });
 

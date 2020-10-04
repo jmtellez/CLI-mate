@@ -28,10 +28,6 @@ const options = `
     --units         m - Metric / s - Scientific / f - Fahrenheit (default)
 `;
 
-const menu = () => {
-  console.log(chalk.yellowBright(ascii));
-  console.log(options);
-};
+const menu = chalk.yellowBright(ascii) + "\n" + options;
 
-const menuText = chalk.yellowBright(ascii) + "\n" + options;
-module.exports = { menu, menuText };
+module.exports = menu;
