@@ -8,17 +8,16 @@ const geocode = require("./utils/geocode");
 const forecast = require("./utils/forecast");
 const menu = require("./utils/menu");
 
-// const location = process.argv[2];
-const units = options.getUnits(process.argv[3]);
-const spinner = ora();
 const cat = [];
+const tac = [];
 process.argv.forEach((val, index) => {
   if(`${val}`.match(/^[a-zA-Z]/) && `${index}` > 1) cat.push(`${val}`);
+  else if(`${val}`.match(/^(--u)/)) tac.push(`${val}`);
 });
 const location = cat.toString().replace(",", "_");
+const units = options.getUnits(tac[0]);
+const spinner = ora();
 const region = "America/".concat(location);
-
-console.log(region);
 
 switch (location) {
   case undefined:
