@@ -17,6 +17,13 @@ const cli = meow(menu, {
 const units = cli.flags.units;
 const location = cli.input[0];
 
+if (cli.flags.h) {
+  cli.showHelp();
+}
+if (cli.flags.v) {
+  cli.showVersion();
+}
+
 switch (location) {
   case undefined:
     menu();
