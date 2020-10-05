@@ -1,15 +1,24 @@
 #!/usr/bin/env node
 const chalk = require("chalk");
 const ora = require("ora");
+const moment = require('moment-timezone');
 const pck = require("./package.json");
 const options = require("./utils/options");
 const geocode = require("./utils/geocode");
 const forecast = require("./utils/forecast");
 const menu = require("./utils/menu");
 
-const location = process.argv[2];
+// const location = process.argv[2];
 const units = options.getUnits(process.argv[3]);
 const spinner = ora();
+const cat = [];
+process.argv.forEach((val, index) => {
+  if(`${val}`.match(/^[a-zA-Z]/) && `${index}` > 1) cat.push(`${val}`);
+});
+const location = cat.toString().replace(",", "_");
+const region = "America/".concat(location);
+
+console.log(region);
 
 switch (location) {
   case undefined:
@@ -40,7 +49,7 @@ switch (location) {
           spinner.succeed(chalk.underline(location));
           console.log(
             chalk.cyanBright(
-              `${description}. It is currently ${temp}${tempScale}, it feels like ${feelsLike}${tempScale}.`
+              `${description}. It is currently ${temp}${tempScale}, it feels like ${feelsLike}${tempScale}. The local time is: ${moment().tz(region).format("h:mmA ddd, MMM D, YYYY")}` 
             )
           );
         }

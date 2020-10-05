@@ -22,6 +22,7 @@
   "license": "ISC",
   "dependencies": {
     "chalk": "^4.1.0",
+    "moment-timezone": "^0.5.31",
     "ora": "^5.1.0",
     "postman-request": "^2.88.1-postman.25",
     "yargs": "^16.0.3"
