@@ -2,12 +2,12 @@ const request = require("postman-request");
 const ora = require("ora");
 
 const forecast = (lat, lon, units = "f", callback) => {
-  const weatherstackURI = `http://api.weatherstack.com/current?access_key=${process.env.WEATHERSTACK}&query=${lat},${lon}&units=${units}`;
+  const weatherStackURI = `${WEATHER_STACK_URL}${WEATHER_STACK_PATH}?access_key=${process.env.WEATHERSTACK}&query=${lat},${lon}&units=${units}`;
   const spinner = ora("Preparing forecast").start();
   spinner.color = "yellow";
 
   setTimeout(() => {
-    request({ url: weatherstackURI, json: true }, (err, { body } = {}) => {
+    request({ url: weatherStackURI, json: true }, (err, { body } = {}) => {
       if (err) {
         spinner.stop();
         callback("Unable to connect to weatherstack services", undefined);

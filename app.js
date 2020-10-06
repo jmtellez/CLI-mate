@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+require("dotenv/config");
 const chalk = require("chalk");
 const ora = require("ora");
 const pck = require("./package.json");
