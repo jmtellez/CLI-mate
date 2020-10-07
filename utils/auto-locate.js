@@ -1,4 +1,4 @@
-function autoLocate(callback) {
+autoLocate = (callback) => {
   request("https://freegeoip.app/json/", (err, body) => {
     if (err) {
       callback(err, undefined)
