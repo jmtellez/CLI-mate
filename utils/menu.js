@@ -29,7 +29,6 @@ const options = `
 `;
 
 const menu = () => {
-  console.log(chalk.yellowBright(ascii));
-  console.log(options);
+  console.log(chalk.yellowBright(ascii) + "\n" + options);
 };
 module.exports = menu;
