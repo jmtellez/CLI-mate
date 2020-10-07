@@ -11,12 +11,10 @@ const args = process.argv;
 let units;
 let location;
 
-
-
 /* 
 == Autolocation - should be fired on case undefined
 
-Const autoLocate = require("./utils/autolocate")
+const autoLocate = require("./utils/autolocate")
 
 
 autoLocate((err, city) => {
@@ -27,20 +25,6 @@ case geocode, etc.
 
 ==
 */
-
-switch (location) {
-  case undefined:
-    menu();
-    spinner.fail("Provide a location");
-    break;
-  case "--help" || "--h":
-  case "--h":
-    menu();
-    break;
-  case "--version" || "--v":
-  case "--v":
-    spinner.succeed(pck.version);
-    break;
 
 if (args[2] === "-h" || args[2] === "--help") {
   menu();
