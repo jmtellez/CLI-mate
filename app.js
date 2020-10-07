@@ -11,21 +11,6 @@ const args = process.argv;
 let units;
 let location;
 
-/* 
-== Autolocation - should be fired on case undefined
-
-const autoLocate = require("./utils/autolocate")
-
-
-autoLocate((err, city) => {
- //console.log(city) ;
-
-case geocode, etc.
-})
-
-==
-*/
-
 if (args[2] === "-h" || args[2] === "--help") {
   menu();
   return;
