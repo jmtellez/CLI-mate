@@ -9,7 +9,7 @@
     "cli-mate": "app.js"
   },
   "scripts": {
-    "start": "node app.js",
+    "dev": "node app.js Dallas --u=m",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -25,7 +25,6 @@
     "chalk": "^4.1.0",
     "dotenv": "^8.2.0",
     "ora": "^5.1.0",
-    "postman-request": "^2.88.1-postman.25",
-    "yargs": "^16.0.3"
+    "postman-request": "^2.88.1-postman.25"
   }
 }
