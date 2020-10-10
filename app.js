@@ -4,7 +4,9 @@ const ora = require("ora");
 const pck = require("./package.json");
 const geocode = require("./utils/geocode");
 const forecast = require("./utils/forecast");
+const autolocate = require("./utils/autolocate");
 const menu = require("./utils/menu");
+
 
 const spinner = ora();
 const args = process.argv;
@@ -37,11 +39,29 @@ let location;
     }
   }
 
-  if (!location) {
-    menu();
-    return spinner.fail("Provide a location");
-  }
-
+if (!location) {
+  autolocate((err, { latitude, longitude, location } = {}) => {
+    if (err) {
+      return spinner.fail(err);
+    }
+    forecast(
+      latitude,
+      longitude,
+      units,
+      (err, { description, temp, feelsLike, tempScale } = {}) => {
+        if (err) {
+          return spinner.fail(err);
+        }
+        spinner.succeed(chalk.underline(location));
+        console.log(
+          chalk.cyanBright(
+            `${description}. It is currently ${temp}${tempScale}, it feels like ${feelsLike}${tempScale}.`
+          )
+        );
+      }
+    );
+  });
+} else {
   geocode(location, (err, { latitude, longitude, location } = {}) => {
     if (err) {
       return spinner.fail(err);
@@ -63,5 +83,5 @@ let location;
       }
     );
   });
-  
+}
 })();
