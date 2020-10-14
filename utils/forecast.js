@@ -13,7 +13,7 @@ const forecast = (lat, lon, units = "f", callback) => {
         callback("Unable to connect to weatherstack services", undefined);
       } else if (body.error) {
         spinner.stop();
-        callback("Unable to find location, try another search", undefined);
+        callback("Weatherstack:"+body.error.type, undefined);
       } else {
         spinner.stop();
         callback(undefined, {
