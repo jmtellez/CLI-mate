@@ -21,6 +21,8 @@ const forecast = (lat, lon, units = "f", callback) => {
           feelsLike: body.current.feelslike,
           description: body.current.weather_descriptions[0],
           tempScale: getTemperatureScale(body.request.unit),
+          windSpeed: body.current.wind_speed,
+          windDirection: body.current.wind_dir
         });
       }
     });

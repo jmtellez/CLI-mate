@@ -48,14 +48,14 @@ if (!location) {
       latitude,
       longitude,
       units,
-      (err, { description, temp, feelsLike, tempScale } = {}) => {
+      (err, { description, temp, feelsLike, tempScale, windSpeed, windDirection } = {}) => {
         if (err) {
           return spinner.fail(err);
         }
         spinner.succeed(chalk.underline(location));
         console.log(
           chalk.cyanBright(
-            `${description}. It is currently ${temp}${tempScale}, it feels like ${feelsLike}${tempScale}.`
+            `${description}. It is currently ${temp}${tempScale}, it feels like ${feelsLike}${tempScale}. The wind is ${windDirection} at ${windSpeed} mph.` 
           )
         );
       }
@@ -70,14 +70,14 @@ if (!location) {
       latitude,
       longitude,
       units,
-      (err, { description, temp, feelsLike, tempScale } = {}) => {
+      (err, { description, temp, feelsLike, tempScale, windSpeed, windDirection } = {}) => {
         if (err) {
           return spinner.fail(err);
         }
         spinner.succeed(chalk.underline(location));
         console.log(
           chalk.cyanBright(
-            `${description}. It is currently ${temp}${tempScale}, it feels like ${feelsLike}${tempScale}.`
+            `${description}. It is currently ${temp}${tempScale}, it feels like ${feelsLike}${tempScale}. The wind is ${windDirection} at ${windSpeed} mph. ` 
           )
         );
       }
