@@ -15,9 +15,9 @@ ________      ___           ___                     _____ ______       ________ 
 
 const options = `
 
-  Usage: cli-mate <location>
+  Usage: cli-mate [location]
 
-  where <location> is a city / place / address / airport code
+  where [location] is a city / place / address / airport code
 
   Eg:
     cli-mate McAllen

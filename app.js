@@ -65,7 +65,7 @@ if (!location) {
       latitude,
       longitude,
       units,
-      (err, { description, temp, feelsLike, tempScale } = {}) => {
+      (err, { description, temp, feelsLike, tempScale, windSpeed, windDir, windScale, precipitation, precipitationUnits, humidity, cloudCover } = {}) => {
         if (err) {
           return spinner.fail(err);
         }
