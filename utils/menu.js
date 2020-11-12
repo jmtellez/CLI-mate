@@ -20,7 +20,9 @@ const options = `
   where [location] is a city / place / address / airport code
 
   Eg:
+    cli-mate
     cli-mate McAllen
+    cli-mate McAllen --units=m
 
   Options:
     --help          Show help 

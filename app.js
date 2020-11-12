@@ -13,8 +13,8 @@ const args = process.argv;
 let units;
 let location;
 
-(function(){
-  if(!process.env.WEATHERSTACK || !process.env.MAPBOX){
+(function () {
+  if (!process.env.WEATHERSTACK || !process.env.MAPBOX) {
     spinner.fail("Failed to get API keys");
     return;
   }
@@ -39,49 +39,49 @@ let location;
     }
   }
 
-if (!location) {
-  autolocate((err, { latitude, longitude, location } = {}) => {
-    if (err) {
-      return spinner.fail(err);
-    }
-    forecast(
-      latitude,
-      longitude,
-      units,
-      (err, { description, temp, feelsLike, tempScale } = {}) => {
-        if (err) {
-          return spinner.fail(err);
-        }
-        spinner.succeed(chalk.underline(location));
-        console.log(
-          chalk.cyanBright(
-            `${description}. It is currently ${temp}${tempScale}, it feels like ${feelsLike}${tempScale}.`
-          )
-        );
+  if (!location) {
+    autolocate((err, { latitude, longitude, location } = {}) => {
+      if (err) {
+        return spinner.fail(err);
       }
-    );
-  });
-} else {
-  geocode(location, (err, { latitude, longitude, location } = {}) => {
-    if (err) {
-      return spinner.fail(err);
-    }
-    forecast(
-      latitude,
-      longitude,
-      units,
-      (err, { description, temp, feelsLike, tempScale, windSpeed, windDir, windScale, precipitation, precipitationUnits, humidity, cloudCover } = {}) => {
-        if (err) {
-          return spinner.fail(err);
+      forecast(
+        latitude,
+        longitude,
+        units,
+        (err, { description, temp, feelsLike, tempScale, windSpeed, windDir, windScale, precipitation, precipitationUnits, humidity, cloudCover } = {}) => {
+          if (err) {
+            return spinner.fail(err);
+          }
+          spinner.succeed(chalk.underline(location));
+          console.log(
+            chalk.cyanBright(
+              `${description}. It is currently ${temp}${tempScale}, it feels like ${feelsLike}${tempScale}.\nWind speed of ${windSpeed} ${windScale} with direction ${windDir}. \nHumidity of ${humidity}% with a Cloud Coverage of ${cloudCover}%.\n${precipitation} ${precipitationUnits} of precipitation.`
+            )
+          );
         }
-        spinner.succeed(chalk.underline(location));
-        console.log(
-          chalk.cyanBright(
-            `${description}. It is currently ${temp}${tempScale}, it feels like ${feelsLike}${tempScale}.`
-          )
-        );
+      );
+    });
+  } else {
+    geocode(location, (err, { latitude, longitude, location } = {}) => {
+      if (err) {
+        return spinner.fail(err);
       }
-    );
-  });
-}
+      forecast(
+        latitude,
+        longitude,
+        units,
+        (err, { description, temp, feelsLike, tempScale, windSpeed, windDir, windScale, precipitation, precipitationUnits, humidity, cloudCover } = {}) => {
+          if (err) {
+            return spinner.fail(err);
+          }
+          spinner.succeed(chalk.underline(location));
+          console.log(
+            chalk.cyanBright(
+              `${description}. It is currently ${temp}${tempScale}, it feels like ${feelsLike}${tempScale}.\nWind speed of ${windSpeed} ${windScale} with direction ${windDir}. \nHumidity of ${humidity}% with a Cloud Coverage of ${cloudCover}%.\n${precipitation} ${precipitationUnits} of precipitation.`
+            )
+          );
+        }
+      );
+    });
+  }
 })();
