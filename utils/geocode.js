@@ -11,6 +11,9 @@ const geocode = (address, callback) => {
       if (err) {
         spinner.stop();
         callback("Unable to connect to mapbox services", undefined);
+      } else if (!body.features){
+        spinner.stop();
+        callback("Mapbox : "+body.message,undefined);
       } else if (body.features.length === 0) {
         spinner.stop();
         callback("Unable to find location, try another search", undefined);
