@@ -2,7 +2,7 @@
 
 # CLI-mate :sunrise:
 
-`Node.js` CLI app that gives you the weather forecast for a given city :sunny:
+Command Line application that gives you the weather info for a given `city/place/address/airport code` :sunny:
 
 ![usage](img/usage.png)
 

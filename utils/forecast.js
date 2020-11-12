@@ -21,6 +21,13 @@ const forecast = (lat, lon, units = "f", callback) => {
           feelsLike: body.current.feelslike,
           description: body.current.weather_descriptions[0],
           tempScale: getTemperatureScale(body.request.unit),
+          windSpeed: body.current.wind_speed,
+          windDir: body.current.wind_dir,
+          windScale: getSpeedScale(body.request.unit),
+          precipitation: body.current.precip,
+          precipitationUnits: getPrecipUnits(body.request.unit),
+          humidity: body.current.humidity,
+          cloudCover: body.current.cloudcover,
         });
       }
     });
@@ -38,5 +45,30 @@ const getTemperatureScale = (apiUnit) => {
       return "°F";
   }
 };
+
+const getSpeedScale = (apiUnit) => {
+  switch (apiUnit) {
+    case "s":
+    case "m":
+      return "km/h";
+    case "f":
+      return "mph";
+    default:
+      return "mph";
+  }
+};
+
+const getPrecipUnits = (apiUnit) => {
+  switch (apiUnit) {
+    case "s":
+    case "m":
+      return "mm";
+    case "f":
+      return "in";
+    default:
+      return "in";
+  }
+}
+
 
 module.exports = forecast;
