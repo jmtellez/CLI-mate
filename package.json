@@ -1,6 +1,6 @@
 {
   "name": "@jmt3559/cli-mate",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "repository": "https://github.com/jmtellez/CLI-mate",
   "description": "CLI to display weather for given location",
   "main": "app.js",
