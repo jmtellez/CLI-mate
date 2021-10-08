@@ -25,5 +25,8 @@
     "chalk": "^4.1.0",
     "ora": "^5.1.0",
     "postman-request": "^2.88.1-postman.25"
+  },
+  "devDependencies": {
+    "semantic-release": "^18.0.0"
   }
 }
