@@ -2,12 +2,7 @@ name: Release
 on:
   push:
     branches: [semantics]
-
-name: Release
-on:
-  push:
-    branches:
-      - master
+    
 jobs:
   release:
     name: Release
