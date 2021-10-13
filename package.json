@@ -10,7 +10,9 @@
   },
   "scripts": {
     "dev": "node app.js McAllen",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "commit": "git-cz",
+    "semantic-release": "semantic-release"
   },
   "keywords": [
     "climate",
@@ -27,6 +29,12 @@
     "postman-request": "^2.88.1-postman.25"
   },
   "devDependencies": {
+    "cz-conventional-changelog": "^3.3.0",
     "semantic-release": "^18.0.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
