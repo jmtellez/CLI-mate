@@ -9,7 +9,7 @@
     "cli-mate": "app.js"
   },
   "scripts": {
-    "dev": "node app.js",
+    "dev": "node app.js McAllen",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

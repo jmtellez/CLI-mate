@@ -5,7 +5,8 @@ const pck = require("./package.json");
 const geocode = require("./utils/geocode");
 const forecast = require("./utils/forecast");
 const autolocate = require("./utils/autolocate");
-const menu = require("./utils/menu");
+const menu = require('./utils/menu');
+const emojis = require('./utils/emojis.json');
 
 
 const spinner = ora();
@@ -54,6 +55,7 @@ let location;
           }
           spinner.succeed(chalk.underline(location));
           console.log(
+            emojis.hasOwnProperty(description.toLowerCase().replace(' ', '_')) ? emojis[`${description.toLowerCase().replace(' ', '_')}`] : emojis.question,
             chalk.cyanBright(
               `${description}. It is currently ${temp}${tempScale}, it feels like ${feelsLike}${tempScale}.\nWind speed of ${windSpeed} ${windScale} with direction ${windDir}. \nHumidity of ${humidity}% with a Cloud Coverage of ${cloudCover}%.\n${precipitation} ${precipitationUnits} of precipitation.`
             )
@@ -70,12 +72,13 @@ let location;
         latitude,
         longitude,
         units,
-        (err, { description, temp, feelsLike, tempScale, windSpeed, windDir, windScale, precipitation, precipitationUnits, humidity, cloudCover } = {}) => {
+        (err, { description, temp, feelsLike, tempScale, windSpeed, windDir, windScale, precipitation, precipitationUnits, humidity, cloudCover, emoji } = {}) => {
           if (err) {
             return spinner.fail(err);
           }
           spinner.succeed(chalk.underline(location));
           console.log(
+            emojis.hasOwnProperty(description.toLowerCase().replace(' ', '_')) ? emojis[`${description.toLowerCase().replace(' ', '_')}`] : emojis.question,
             chalk.cyanBright(
               `${description}. It is currently ${temp}${tempScale}, it feels like ${feelsLike}${tempScale}.\nWind speed of ${windSpeed} ${windScale} with direction ${windDir}. \nHumidity of ${humidity}% with a Cloud Coverage of ${cloudCover}%.\n${precipitation} ${precipitationUnits} of precipitation.`
             )
