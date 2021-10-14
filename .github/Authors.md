@@ -1,1 +1,2 @@
 - [@jmtellez](https://github.com/jmtellez)
+- [@spotts9](https://github.com/spotts9)
