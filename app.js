@@ -7,7 +7,11 @@ const forecast = require("./utils/forecast");
 const autolocate = require("./utils/autolocate");
 const menu = require('./utils/menu');
 const emojis = require('./utils/emojis.json');
+const updateNotifier = require('update-notifier');
+const pgk = require('./package.json');
 
+//check for available updates
+updateNotifier({pkg}).notify();
 
 const spinner = ora();
 const args = process.argv;
